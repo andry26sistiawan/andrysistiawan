@@ -58,25 +58,45 @@ class App extends React.Component<Props, State>{
   render(){
     return(
       
-      <div style={{ display:'flex', flexDirection:'column'}}>
+      <div style={styles.container}>
         <HeaderHome title="List My Repositories" />
-        <div style={{marginTop:'14vh', width:'100vw', flexDirection:'row', display:'flex'}}>
+        <div style={styles.containerBody}>
           <div style={{width:'100%', height:'70vh',}}>
-            <div style={{marginRight:'5vh', marginBottom:'2vh', width:'100%', height:'12vh', background:'white', justifyContent:'center', alignItems:'center', display:'flex',}}>
-              <Stack spacing={2} direction="row">
+            <div style={styles.bodyMenu}>
+              <Stack>
                 <Button onClick={this.handleGetListRepos} variant="contained">Get All Repositories</Button>
               </Stack>
             </div>
             <TableDataList listData ={this.state.listData} columns={columns}/>
           </div>
-        </div>
-        
-          
-          
+        </div>    
       </div>
       
     )
   }
 }
+
+const styles = {
+  container: {
+    display:'flex', 
+    flexDirection:'column'
+  },
+  containerBody: {
+    marginTop:'14vh',
+    width:'100vw',
+    flexDirection:'row',
+    display:'flex'
+  },
+  bodyMenu: {
+    marginRight:'5vh', 
+    marginBottom:'2vh', 
+    width:'100%', 
+    height:'12vh', 
+    background:'white', 
+    justifyContent:'center', 
+    alignItems:'center', 
+    display:'flex',
+  },
+} as const;
 
 export default App;
